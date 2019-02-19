@@ -7,18 +7,21 @@ fifaDf = session.read.csv("c:/users/abhishek priyankar/pycharmprojects/stacks-st
                           header=True,
                           inferSchema=True)
 
-basicStatDf = fifaDf.select(["ID", "Name", "Age", "Nationality", "Overall", "Club", "Preferred Foot", "Position"])
 fifaDf.show(5)
-fifaDf.printSchema()
 
-print("No of Partitions : " + str(fifaDf.rdd.getNumPartitions()))
-fifaDfFivePart = fifaDf.rdd.repartition(5)
-print("Re - Partitions Size : " + str(fifaDfFivePart.getNumPartitions()))
-basicStatDf.show(5)
-print(basicStatDf.dtypes)
+basicStatDf = fifaDf.select(["ID", "Name", "Age", "Nationality", "Overall", "Club", "Preferred Foot", "Position"])
+
+
+def printInfo(dataFrame):
+    dataFrame.printSchema()
+    print("No of Partitions : " + str(dataFrame.rdd.getNumPartitions()))
+    fifaDfFivePart = dataFrame.rdd.repartition(5)
+    print("Re - Partitions Size : " + str(fifaDfFivePart.getNumPartitions()))
+    dataFrame.show(5)
+    print(dataFrame.explain)
+
 
 jsonDf = basicStatDf.toJSON()
+print(type(jsonDf))
 
 print(fifaDf.count())
-
-# print(fifaDf)
