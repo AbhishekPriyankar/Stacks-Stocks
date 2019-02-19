@@ -1,9 +1,10 @@
 from pyspark.sql import *
 from pyspark import SparkConf, SparkContext
+from src.Constants import FILE_PATH
 
 session = SparkSession.builder.master("local").appName("MyPySpark").config(conf=SparkConf()).getOrCreate()
 
-fifaDf = session.read.csv("c:/users/abhishek priyankar/pycharmprojects/stacks-stocks/resources/data.csv",
+fifaDf = session.read.csv(FILE_PATH,
                           header=True,
                           inferSchema=True)
 
