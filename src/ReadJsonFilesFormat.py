@@ -16,3 +16,6 @@ fifaBasicDf.createOrReplaceTempView("fifaTable")
 argentinaPlayersDf = session.sql("SELECT * FROM fifaTable WHERE Nationality LIKE 'Argentina' ")
 
 argentinaPlayersDf.show()
+
+print(fifaBasicDf.select("Club").distinct().count())
+fifaBasicDf.select("Club").distinct().orderBy("Club").show(652)
