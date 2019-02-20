@@ -24,5 +24,5 @@ def printInfo(dataFrame):
 
 jsonDf = basicStatDf.toJSON()
 print(type(jsonDf))
-
+printInfo(basicStatDf)
 print(fifaDf.count())
