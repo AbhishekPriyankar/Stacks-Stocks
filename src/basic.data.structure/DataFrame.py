@@ -1,6 +1,6 @@
 from pyspark.sql import *
-from pyspark import SparkConf, SparkContext
-from src.Constants import FILE_PATH
+from pyspark import SparkConf
+from src.util.Constants import FILE_PATH
 
 session = SparkSession.builder.master("local").appName("MyPySpark").config(conf=SparkConf()).getOrCreate()
 

@@ -1,6 +1,6 @@
 from pyspark.sql import *
 from pyspark import SparkConf
-from src.Constants import JSON_FILE_PATH
+from src.util.Constants import JSON_FILE_PATH
 
 session = SparkSession.builder.master("local").appName("JsonFiles").config(conf=SparkConf()).getOrCreate()
 
