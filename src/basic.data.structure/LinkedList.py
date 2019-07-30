@@ -14,6 +14,35 @@ class LinkedList:
             print (temp.data)
             temp = temp.next
 
+    def deleteNode(self, key):
+
+        #Store head in temporary Node
+        temp = self.head
+
+        # If head node itself holds the key to be deleted
+        if temp is not None:
+            if temp.data == key:
+                self.head = temp.next
+                temp = None
+                return
+
+        # Search for the key to be deleted, keep track of the
+        # previous node as we need to change 'prev.next'
+        while temp is not None:
+            if temp.data == key:
+                break
+            prev = temp
+            temp = temp.next
+
+        # if key was not present in linked list
+        if temp == None:
+            return
+
+        # Unlink the node from linked list
+        prev.next = temp.next
+
+        temp = None
+
     def push(self,new_data):
         new_node = Node(new_data)
         new_node.next = self.head
@@ -50,6 +79,6 @@ if __name__ == '__main__':
 
     second.next = third
     llist.append(6)
-
+    llist.deleteNode(2)
     llist.printList()
 
