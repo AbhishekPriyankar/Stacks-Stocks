@@ -41,6 +41,3 @@ key = int(input())
 index = jump_search(array, key, arr_len)
 
 print("Number ", key, "at index ", "%.0f"%index)
-
-
-
